@@ -16,4 +16,4 @@ I didn't really do much with the previous iterations other than just having a re
 
 ## Special thanks
 
-To [Tania](https://www.taniarascia.com/) for her helpful articles, saved my bacon a couple of times.
+To [Tania](https://www.taniarascia.com/) for her helpful articles, saved my bacon a couple of times. And to Ruben Harutyunyan/Vagr9K, the author of [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/).
