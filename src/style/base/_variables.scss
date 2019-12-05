@@ -1,0 +1,37 @@
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px
+);
+
+$color-palette: (
+  primary: #1779ba,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37
+);
+
+$primary-color: map-get($color-palette, primary);
+$grid-col-count: 12;
+$container-width: 1200px;
+$gutter-size: 12px;
+$hover-color: #efefef;
+$menu-width: 200px;
+$menu-gutter: $gutter-size * 2.5;
+$responsive-navbar-height: 60px;
+
+$black: #1b1a1a;
+$grey: #767676;
+$light-grey: #f2f2f2;
+$dark-grey: #292929;
+$white: #ffffff;
+
+$button-border-width: 1px;
+$button-border-style: solid;
+$button-border-color: $white;
+$button-border-radius: 5px;
+$button-background: $primary-color;
+$button-color: $white;

@@ -1,44 +1,67 @@
-import React from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import Layout from "../layout";
-import UserInfo from "../components/UserInfo/UserInfo";
-import Disqus from "../components/Disqus/Disqus";
-import PostTags from "../components/PostTags/PostTags";
-import SocialLinks from "../components/SocialLinks/SocialLinks";
-import SEO from "../components/SEO/SEO";
-import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
-import "./post.css";
 
-export default class PostTemplate extends React.Component {
+import Layout from "../layout";
+import UserInfo from "../components/UserInfo";
+import PostTags from "../components/PostTags";
+import SEO from "../components/SEO";
+import config from "../../data/SiteConfig";
+import { formattedDate } from "../utils/functions";
+
+export default class PostTemplate extends Component {
+  getThumbnail = post => {
+    let image = "";
+
+    if (post.cover) {
+      image = post.cover;
+    }
+
+    return image;
+  };
+
   render() {
     const { data, pageContext } = this.props;
     const { slug } = pageContext;
     const postNode = data.markdownRemark;
     const post = postNode.frontmatter;
+    const date = formattedDate(post.date);
+    // const image = this.getThumbnail(post);
+
     if (!post.id) {
       post.id = slug;
     }
     if (!post.category_id) {
       post.category_id = config.postDefaultCategoryID;
     }
+
     return (
       <Layout>
-        <div>
+        <div className="post template-post">
           <Helmet>
             <title>{`${post.title} | ${config.siteTitle}`}</title>
           </Helmet>
           <SEO postPath={slug} postNode={postNode} postSEO />
-          <div>
-            <h1>{post.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-            <div className="post-meta">
-              <PostTags tags={post.tags} />
-              <SocialLinks postPath={slug} postNode={postNode} />
+          <div className="post-header">
+            <div className="thumbbail-container" />
+            <div className="title">
+              <h1>{post.title}</h1>
             </div>
+            <div className="post-date">
+              <h3>{date}</h3>
+            </div>
+          </div>
+          <div className="post-body">
+            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
             <UserInfo config={config} />
-            <Disqus postNode={postNode} />
+          </div>
+          <div className="post-meta">
+            {post.tags && (
+              <div className="post-tags">
+                <span className="label">Tags: </span>
+                <PostTags tags={post.tags} />
+              </div>
+            )}
           </div>
         </div>
       </Layout>
@@ -55,10 +78,16 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         title
-        cover
         date
         category
         tags
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
+        }
       }
       fields {
         slug

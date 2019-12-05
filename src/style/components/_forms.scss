@@ -1,0 +1,26 @@
+button,
+.button {
+  -webkit-appearance: none;
+  display: inline-block;
+  border: solid 1px $button-border-color;
+  border-radius: $button-border-radius;
+  background: $button-background;
+  color: $button-color;
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 0.5rem 0;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+  transition: background 0.2s;
+
+  &:active,
+  &:focus {
+    outline-color: white;
+  }
+
+  &:hover {
+    background: darken($button-background, 10%);
+  }
+}

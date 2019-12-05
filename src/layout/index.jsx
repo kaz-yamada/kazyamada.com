@@ -1,17 +1,29 @@
 import React from "react";
 import Helmet from "react-helmet";
+
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
 import config from "../../data/SiteConfig";
-import "./index.css";
+
+import "../style/main.scss";
+
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]');
+}
 
 export default class MainLayout extends React.Component {
   render() {
-    const { children } = this.props;
+    const { children, LocalTitle } = this.props;
+    const footerLinks = LocalTitle !== "About";
     return (
-      <div>
+      <div className="index-layout backround-light">
+        <Navigation config={config} />
         <Helmet>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        {children}
+        <div className="main-content side-gutter">{children}</div>
+        <Footer config={config} userLinks={footerLinks} />
       </div>
     );
   }

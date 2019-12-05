@@ -1,0 +1,114 @@
+.main-navigation {
+  justify-content: space-between;
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  background: $primary-color;
+  padding: 0 $gutter-size;
+
+  .menu-button {
+    display: inline-block;
+    outline: none;
+    width: 36px;
+    height: 36px;
+    margin: $gutter-size;
+    padding: 0 4px;
+
+    &::after,
+    .menu-icon::before,
+    .menu-icon::after {
+      display: block;
+      content: "";
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+
+  .navbar {
+    display: none;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    padding: $gutter-size 0;
+
+    a {
+      padding: $gutter-size;
+      display: block;
+      transition: background 0.4s;
+      color: white;
+      position: relative;
+
+      &::after {
+        content: "";
+        border-bottom: solid 2px white;
+        width: 0;
+        display: block;
+        margin: 0;
+      }
+
+      &:hover {
+        &::after {
+          transition: width 0.4s;
+          width: 100%;
+          bottom: -5px;
+          position: relative;
+        }
+      }
+    }
+
+    .menu-links {
+      display: flex;
+      flex-flow: column;
+
+      a {
+        margin: 0;
+      }
+    }
+  }
+
+  &.show-menu {
+    .navbar {
+      display: flex;
+    }
+
+    .menu-button::after {
+      transform: translateY(-9px) rotate(-135deg);
+    }
+
+    .menu-icon::before {
+      transform: translateY(9px) rotate(135deg);
+    }
+
+    .menu-icon::after {
+      opacity: 0;
+    }
+  }
+
+  // Desktop screens
+  @include large-breakpoint {
+    flex-flow: column;
+    width: $menu-width;
+    top: 0;
+    left: 0;
+    padding: 0;
+    height: 100vh;
+    background: $primary-color;
+
+    .navbar {
+      display: flex;
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .menu-links {
+      a {
+        margin: 0;
+      }
+    }
+  }
+}

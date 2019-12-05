@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// code {
+//   display: inline-block;
+//   white-space: pre-wrap;
+// }
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $gutter-size;
+}
