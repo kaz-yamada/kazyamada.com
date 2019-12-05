@@ -51,8 +51,6 @@ $header-height: 250px;
   @include medium-breakpoint {
     .gatsby-highlight {
       margin: auto;
-      //   margin-left: -$menu-gutter;
-      //   margin-right: -$gutter-size;
     }
   }
 

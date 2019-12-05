@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+// import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo";
@@ -13,8 +14,10 @@ export default class PostTemplate extends Component {
   getThumbnail = post => {
     let image = "";
 
-    if (post.cover) {
-      image = post.cover;
+    // if (post.cover) image = post.cover;
+
+    if (post.featuredImage) {
+      image = post.featuredImage.childImageSharp.fluid;
     }
 
     return image;
@@ -43,7 +46,9 @@ export default class PostTemplate extends Component {
           </Helmet>
           <SEO postPath={slug} postNode={postNode} postSEO />
           <div className="post-header">
-            <div className="thumbbail-container" />
+            <div className="thumbbail-container">
+              {/* <BackgroundImage className="" fluid={image} /> */}
+            </div>
             <div className="title">
               <h1>{post.title}</h1>
             </div>

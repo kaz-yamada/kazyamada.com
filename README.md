@@ -4,7 +4,7 @@ My personal website created with GatsbyJS and React, created using [Gatsby Advan
 
 ## Author
 
-[Kazuki Yamada (me)](kazyamada.com)
+[Kazuki Yamada (me)](https://www.kazyamada.com)
 
 ## Special thanks
 

@@ -153,8 +153,7 @@ module.exports = {
                       date
                     }
                     frontmatter {
-                      title
-                      cover
+                      title                      
                       date
                       category
                       tags
