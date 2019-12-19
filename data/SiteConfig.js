@@ -26,13 +26,19 @@ const config = {
       label: "GitHub",
       url: "https://github.com/kaz-yamada",
       iconClassName: "github",
-      image: `/logos/github-icon.png`
+      image: "/logos/github-icon.png"
     },
     {
       label: "Codepen",
       url: "https://codepen.io/kaz-yamada",
       iconClassName: "codepen",
       image: "/logos/codepen-icon.png"
+    },
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/kaz-yamada/",
+      iconClassName: "linkedin",
+      image: "/logos/linkedin-32.png"
     }
   ],
   menuLinks: [

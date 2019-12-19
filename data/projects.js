@@ -1,7 +1,7 @@
 export default [
   {
     title: "React-Redux-Todo-List",
-    path: "http://www.kazyamada.com/React-Redux-Todo-List/",
+    path: "http://kaz-yamada.github.io/React-Redux-Todo-List/",
     source: "https://github.com/kaz-yamada/React-Redux-Todo-List",
     description:
       "A simple todo list with a calendar made with react and material-ui"
