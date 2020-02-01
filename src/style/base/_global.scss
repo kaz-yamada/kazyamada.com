@@ -8,10 +8,24 @@ html {
   box-sizing: border-box;
 }
 
-// code {
-//   display: inline-block;
-//   white-space: pre-wrap;
-// }
+ul {
+  margin-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  &:hover:not(.button):not(.menu-link):not(.project-link):not(.user-link):not(.post-link) {
+    color: $primary-color-dark;
+    border-bottom: $primary-color-dark solid 2px;
+
+    &.no-underline {
+      border-bottom: none;
+    }
+  }
+}
 
 .container {
   max-width: $container-width;

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="medium-6"
+    >
+      <h4>
+        A GatsbyJs site based on 
+        <a
+          href="https://github.com/Vagr9K/gatsby-advanced-starter"
+        >
+          Gatsby Advanced Starter.
+        </a>
+      </h4>
+    </div>
+    <div
+      className="medium-6"
+    >
+      <div
+        className="footer-links"
+      >
+        <div
+          className="user-links"
+        >
+          <a
+            className="user-link"
+            href="https://github.com/kaz-yamada"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="GitHub"
+              className="icon"
+              height="30"
+              src="/logos/github-icon.png"
+              width="30"
+            />
+          </a>
+          <a
+            className="user-link"
+            href="https://codepen.io/kaz-yamada"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Codepen"
+              className="icon"
+              height="30"
+              src="/logos/codepen-icon.png"
+              width="30"
+            />
+          </a>
+          <a
+            className="user-link"
+            href="https://www.linkedin.com/in/kaz-yamada/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="LinkedIn"
+              className="icon"
+              height="30"
+              src="/logos/linkedin-32.png"
+              width="30"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

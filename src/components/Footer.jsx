@@ -1,6 +1,5 @@
 import React from "react";
 
-import githubIcon from "../assets/images/GitHub-Mark-64px.png";
 import UserLinks from "./UserLinks";
 
 const Footer = props => {
@@ -18,9 +17,6 @@ const Footer = props => {
         </div>
         <div className="medium-6">
           <div className="footer-links">
-            {/* <a href="https://github.com/kaz-yamada">
-              <img src={githubIcon} height="20" width="20" alt="GitHub" />
-            </a> */}
             <UserLinks config={config} />
           </div>
         </div>

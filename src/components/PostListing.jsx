@@ -30,12 +30,13 @@ class PostListing extends React.Component {
       <div className="post-list">
         {postList.map(post => {
           let thumbnail;
+
           if (post.thumbnail) {
             thumbnail = post.thumbnail.childImageSharp.fixed;
           }
 
           return (
-            <Link to={post.path} key={post.title}>
+            <Link to={post.path} key={post.title} className="post-link">
               <div className="post-item">
                 {thumbnail ? (
                   <Img fixed={thumbnail} className="thumbnail" />

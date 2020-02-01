@@ -23,6 +23,11 @@ export default [
     title: "Beercan",
     source: "https://github.com/kaz-yamada/beercan",
     description: "A simple Wordpress theme that I used for my personal site"
+  },
+  {
+    title: "Calendar Booking App",
+    source: "https://github.com/kaz-yamada/Calendar-booking-app",
+    description: "An Express.js serverside api that uses the Google Calendar API"
   }
 ];
 

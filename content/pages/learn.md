@@ -4,16 +4,88 @@ slug: learn
 template: page
 ---
 
-I'd like to learn a lot of things, here's a list of what I know (and what I hope to learn).
+I'd like to learn a lot of things, here's a list of what I know (and what I hope to learn). Still compiling this list so everything may not to be up to date
 
-# Currently learning
+# Javascript
 
-# Learned
+## Frameworks/Libraries
 
-## Javascript
+- [x] Vue.js
+- [x] React
+  - [ ] Hooks API
+  - [ ] Context API
+  - [ ] Redux
+- [x] jQuery
+- [x] Webpack
+- [x] ExpressJs
 
-## CSS/SCSS
+## Tools
 
-## C++
+# CSS/SCSS
 
-## Data Structures & Algorithms
+# C++
+
+# Java
+
+## Spring
+
+# Python
+
+## Django
+
+# PHP
+
+## WordPress
+
+- [x]
+
+## Laravel
+
+# Development tools
+
+# Data Structures & Algorithms
+
+- [ ] Lists
+  - [ ] Arrays
+  - [ ] Linked lists
+  - [ ] Singly linked lists
+  - [ ] Doubly linked lists
+- [ ] Stack
+- [ ] Queue
+- [ ] Hash tables
+
+### Trees
+
+- [ ] Binary tree
+- [ ] Segment tree
+- [ ] Heap
+
+## Graphs
+
+- [ ] Breadth First Search (BFS)
+- [ ] Depth First Search (DFS)
+- [ ] Shortest Path from source to all vertices **Dijkstra**
+- [ ] Shortest Path from every vertex to every other vertex **Floyd Warshall**
+- [ ] Minimum Spanning tree **Prim**
+- [ ] Minimum Spanning tree **Kruskal**
+- [ ] Topological Sort
+- [ ] Johnson’s algorithm
+- [ ] Articulation Points (or Cut Vertices) in a Graph
+- [ ] Bridges in a graph
+
+## Searching And Sorting
+
+# Database/APIs
+
+- [ ] PostgreSQL
+- [ ] GraphQL
+- [ ] NoSQL/MongoDB
+
+# DevOps and CI/CD
+
+- [ ] AWS
+- [ ] Microsoft Azure
+- [ ] Vagrant
+- [ ] Docker
+
+# Other

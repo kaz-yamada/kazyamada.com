@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/no-unescaped-entities */
-import React, { Component } from "react";
+import React from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import SVG from "react-inlinesvg";
@@ -16,35 +17,30 @@ import projects from "../../data/projects";
 import kaz from "../assets/images/kaz.jpg";
 import scroll from "../assets/images/scroll.svg";
 
-class Index extends Component {
-  render() {
-    const { data } = this.props;
-    const postEdges = data.allMarkdownRemark.edges;
+const Index = ({ data }) => {
+  const postEdges = data.allMarkdownRemark.edges;
 
-    return (
-      <Layout>
-        <div className="front-page">
-          <Helmet title={config.siteTitle} />
-          <SEO postEdges={postEdges} />
-          <div className="index-container">
-            <div className="hero full-height">
-              <div className="hero-text">
-                <h2>Hi I'm Kazuki</h2>
-                <p>I am a developer/programmer based in Sydney, Australia.</p>
-                <UserLinks config={config} />
-              </div>
-              <div className="scroll-down">
-                <Link to="/#about-me">
-                  <SVG src={scroll} />
-                </Link>
-              </div>
+  return (
+    <Layout>
+      <div className="front-page">
+        <Helmet title={config.siteTitle} />
+        <SEO postEdges={postEdges} />
+        <div className="index-container">
+          <div className="hero full-height">
+            <div className="hero-text">
+              <h2>Hi I'm Kazuki</h2>
+              <p>I am a developer/programmer based in Sydney, Australia.</p>
+              <UserLinks config={config} />
             </div>
-            <div className="front-page-contents">
-              <section
-                id="about-me"
-                className="row"
-                style={{ paddingTop: "4em" }}
-              >
+            <div className="scroll-down">
+              <Link to="/#about-me" className="no-underline">
+                <SVG src={scroll} />
+              </Link>
+            </div>
+          </div>
+          <div className="front-page-contents">
+            <section id="about-me">
+              <div className="row vertical-gutter">
                 <div className="medium side-gutter">
                   <div className="home-picture">
                     <img
@@ -70,34 +66,61 @@ class Index extends Component {
                     Technology, Sydney in 2016.
                   </p>
                 </div>
-              </section>
-              <section className="vertical-margin">
-                <div className="section-title">
-                  <h1>
-                    Latest posts
-                    <Link to="/blog/">View All</Link>
-                  </h1>
+              </div>
+              <div className="row vertical-gutter">
+                <div className="medium-12">
+                  <h2>My skills</h2>
+                  <p>
+                    In addition to the programming languages that were part of
+                    my courses I've been learning on my own using the vast (and
+                    mostly free) resources available on the internet. I've
+                    compiled a list of what I've <a href="/learn">Learned</a>{" "}
+                    over the years but most of my strength is in front-end
+                    development, but select skills include:
+                  </p>
                 </div>
-                <div className="small-12">
-                  <PostListing postEdges={postEdges} />
+                <div className="medium-12 learn-list">
+                  <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>React</li>
+                    <li>Javascript/ES6</li>
+                    <li>Android (Java)</li>
+                    <li>Git</li>
+                  </ul>
                 </div>
-              </section>
-              <section id="projects" className="vertical-margin">
-                <div className="section-title">
-                  <h1>
-                    Projects
-                    <a href="https://github.com/kaz-yamada">View All</a>
-                  </h1>
-                </div>
-                <ProjectListing projects={projects} />
-              </section>
-            </div>
+              </div>
+            </section>
+            <section className="vertical-margin">
+              <div className="section-title">
+                <h1>
+                  Latest posts
+                  <Link className="button" to="/blog/">
+                    View All
+                  </Link>
+                </h1>
+              </div>
+              <div className="small-12">
+                <PostListing postEdges={postEdges} />
+              </div>
+            </section>
+            <section id="projects" className="vertical-margin">
+              <div className="section-title">
+                <h1>
+                  Projects
+                  <a className="button" href="https://github.com/kaz-yamada">
+                    View All
+                  </a>
+                </h1>
+              </div>
+              <ProjectListing projects={projects} />
+            </section>
           </div>
         </div>
-      </Layout>
-    );
-  }
-}
+      </div>
+    </Layout>
+  );
+};
 
 export default Index;
 

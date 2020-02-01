@@ -1,9 +1,7 @@
 import React from "react";
 import GitHubButton from "react-github-btn";
 
-const ProjectListing = props => {
-  const { projects } = props;
-
+const ProjectListing = ({ projects }) => {
   return (
     <div className="project-list">
       {projects.map(project => (

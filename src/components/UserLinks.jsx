@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
-class UserLinks extends Component {
-  getLinkElements() {
-    const { labeled, config } = this.props;
-    const { userLinks } = config;
+const UserLinks = ({ labeled, config }) => {
+  const { userLinks } = config;
 
+  const getLinkElements = () => {
     return userLinks.map(link => (
       <a
         href={link.url}
         key={link.label}
+        className="user-link"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -25,16 +25,13 @@ class UserLinks extends Component {
         )}
       </a>
     ));
+  };
+
+  if (!userLinks) {
+    return null;
   }
 
-  render() {
-    const { config } = this.props;
-    const { userLinks } = config;
-    if (!userLinks) {
-      return null;
-    }
-    return <div className="user-links">{this.getLinkElements()}</div>;
-  }
-}
+  return <div className="user-links">{getLinkElements()}</div>;
+};
 
 export default UserLinks;

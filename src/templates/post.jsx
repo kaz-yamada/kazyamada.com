@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-// import BackgroundImage from "gatsby-background-image";
+import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo";
@@ -29,7 +29,7 @@ export default class PostTemplate extends Component {
     const postNode = data.markdownRemark;
     const post = postNode.frontmatter;
     const date = formattedDate(post.date);
-    // const image = this.getThumbnail(post);
+    const image = this.getThumbnail(post);
 
     if (!post.id) {
       post.id = slug;
@@ -47,7 +47,7 @@ export default class PostTemplate extends Component {
           <SEO postPath={slug} postNode={postNode} postSEO />
           <div className="post-header">
             <div className="thumbbail-container">
-              {/* <BackgroundImage className="" fluid={image} /> */}
+              <BackgroundImage fluid={image} />
             </div>
             <div className="title">
               <h1>{post.title}</h1>

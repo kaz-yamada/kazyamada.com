@@ -33,8 +33,11 @@
   .hero {
     position: relative;
     text-align: center;
-    margin-left: -$menu-gutter;
-    margin-right: -$gutter-size;
+
+    @include medium-breakpoint {
+      margin-left: -$menu-gutter;
+      margin-right: -$gutter-size;
+    }
 
     .user-links {
       display: flex;
@@ -91,6 +94,15 @@
 
     img {
       margin: 0 0 $gutter-size;
+    }
+  }
+}
+
+.learn-list {
+  ul {
+    li {
+      font-weight: bold;
+      font-size: 1em;
     }
   }
 }

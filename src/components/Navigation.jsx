@@ -46,12 +46,19 @@ export default class Navigation extends Component {
         </button>
         <div className="navbar">
           <div className="nav-title">
-            <Link to="/#">{config.siteTitleShort}</Link>
+            <Link className="menu-link" to="/#">
+              {config.siteTitleShort}
+            </Link>
           </div>
-          <div className="menu-links">
+          <div className="menu-item">
             {menuLinks.map(item => {
               return (
-                <Link key={item.name} to={item.link} onClick={this.hideMenu}>
+                <Link
+                  className="menu-link"
+                  key={item.name}
+                  to={item.link}
+                  onClick={this.hideMenu}
+                >
                   {item.name}
                 </Link>
               );
