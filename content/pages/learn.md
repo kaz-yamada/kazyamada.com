@@ -19,9 +19,21 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 - [x] Webpack
 - [x] ExpressJs
 
-## Tools
+## Testing
+
+- [ ] Jest
+- [ ] Enzyme
+- [ ] Mocha
+- [ ] Chai
 
 # CSS/SCSS
+
+- [ ] Styled components
+
+## Frameworks
+
+- [x] Bootstrap/Reactstrap
+- [x] Material UI
 
 # C++
 
@@ -42,6 +54,43 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 ## Laravel
 
 # Development tools
+
+# Databases/APIs
+
+- [ ] PostgreSQL
+- [ ] GraphQL
+- [ ] NoSQL/MongoDB
+
+# Authentication
+
+- [ ] Cookie Based
+- [ ] OAuth
+- [ ] JWT
+
+# DevOps and CI/CD
+
+- [ ] AWS
+- [ ] Microsoft Azure
+- [ ] Vagrant
+- [ ] Docker
+
+# Static Site Generators
+
+- [x] GatsbyJS
+- [x] Jekyll
+- [ ] Next.JS
+
+# Mobile Developement
+
+- [x] Native Android (Java)
+- [ ] Kotlin
+- [ ] React Native
+
+## Design Patterns
+
+- [ ] Model-Viewer-Presenter
+- [ ] Model-View-ViewModel
+- [ ] Model-View-Controller
 
 # Data Structures & Algorithms
 
@@ -75,17 +124,9 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 
 ## Searching And Sorting
 
-# Database/APIs
-
-- [ ] PostgreSQL
-- [ ] GraphQL
-- [ ] NoSQL/MongoDB
-
-# DevOps and CI/CD
-
-- [ ] AWS
-- [ ] Microsoft Azure
-- [ ] Vagrant
-- [ ] Docker
-
-# Other
+- [ ] Bubble Sort
+- [ ] Insertion Sort
+- [ ] Selection Sort
+- [ ] Quick Sort
+- [ ] Merge Sort
+- [ ] Heap Sort

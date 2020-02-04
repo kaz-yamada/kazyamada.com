@@ -28,6 +28,11 @@ export default [
     title: "Calendar Booking App",
     source: "https://github.com/kaz-yamada/Calendar-booking-app",
     description: "An Express.js serverside api that uses the Google Calendar API"
+  },
+  {
+      title: "Smartcard Settlement",
+      source: "https://github.com/kaz-yamada/Smartcard-Settlement",
+      description: "Univserity final assignment, written in PL/SQL"
   }
 ];
 
