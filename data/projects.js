@@ -14,6 +14,12 @@ export default [
       "A simple app using the studio ghibli API (Just something that I did while figuring out REST APIs)"
   },
   {
+    title: "Card Match Game",
+    path: "https://kaz-yamada.github.io/Card-Match-Game",
+    source: "https://github.com/kaz-yamada/Card-Match-Game",
+    description: "A card match game made with React and images sourced from https://picsum.photos/"
+  },
+  {
     title: "PetShelterFinder",
     source: "https://github.com/kaz-yamada/PetShelterFinder",
     description:
@@ -27,12 +33,13 @@ export default [
   {
     title: "Calendar Booking App",
     source: "https://github.com/kaz-yamada/Calendar-booking-app",
-    description: "An Express.js serverside api that uses the Google Calendar API"
+    description:
+      "An Express.js serverside api that uses the Google Calendar API"
   },
   {
-      title: "Smartcard Settlement",
-      source: "https://github.com/kaz-yamada/Smartcard-Settlement",
-      description: "Univserity final assignment, written in PL/SQL"
+    title: "Smartcard Settlement",
+    source: "https://github.com/kaz-yamada/Smartcard-Settlement",
+    description: "Univserity final assignment, written in PL/SQL"
   }
 ];
 

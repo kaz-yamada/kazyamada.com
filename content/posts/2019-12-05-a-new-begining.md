@@ -3,7 +3,7 @@ title: "A new begining"
 template: post
 date: "2019-12-05"
 featuredImage: "../images/thumbnails/2019-12-05-a-new-begining.jpg"
-category: "rambling"
+category: "personal"
 tags:
   - rambling
 ---
