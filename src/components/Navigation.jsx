@@ -8,19 +8,19 @@ export default class Navigation extends Component {
 
     this.state = {
       showMenu: false,
-      menuClass: ""
+      menuClass: "",
     };
   }
 
   toggleMenu = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       const menuClass = prevState.showMenu ? "" : "show-menu";
 
       return { showMenu: !prevState.showMenu, menuClass };
     });
   };
 
-  onMenuButtonClick = e => {
+  onMenuButtonClick = (e) => {
     e.preventDefault();
     this.toggleMenu();
   };
@@ -46,15 +46,16 @@ export default class Navigation extends Component {
         </button>
         <div className="navbar">
           <div className="nav-title">
-            <Link className="menu-link" to="/#">
+            <Link className="menu-link" activeClassName="active" to="/#">
               {config.siteTitleShort}
             </Link>
           </div>
           <div className="menu-item">
-            {menuLinks.map(item => {
+            {menuLinks.map((item) => {
               return (
                 <Link
                   className="menu-link"
+                  activeClassName="active"
                   key={item.name}
                   to={item.link}
                   onClick={this.hideMenu}

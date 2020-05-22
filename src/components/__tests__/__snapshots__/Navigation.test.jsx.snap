@@ -46,7 +46,7 @@ exports[`Navigation bar renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
       >
-        Projects
+        My Projects
       </a>
       <a
         className="menu-link"

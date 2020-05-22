@@ -49,6 +49,7 @@
         margin: 0;
       }
 
+      &.active,
       &:hover {
         &::after {
           transition: width 0.4s;
