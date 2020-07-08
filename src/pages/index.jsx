@@ -62,7 +62,7 @@ const Index = ({ data }) => {
                     Technologies for Web applications, Fundamentals of
                     Mathematics, Design Science. Worked part time as a clerk
                     druing that time. Left UWS to enrol in University of
-                    Technology, Sydney in 2016.
+                    Technology, Sydney in 2016 and graduated 2019.
                   </p>
                 </div>
               </div>
