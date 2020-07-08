@@ -22,7 +22,7 @@ export default class PageTemplate extends Component {
           <title>{`${page.title} | ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <div className="page">
+        <div className="page side-gutter">
           <article>
             <header className="page-header">
               <h1>{page.title}</h1>

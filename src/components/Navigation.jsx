@@ -1,72 +1,70 @@
-import React, { Component } from "react";
-
+import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 
-export default class Navigation extends Component {
-  constructor(props) {
-    super(props);
+import { ThemeContext } from "../context/ThemeContext";
 
-    this.state = {
-      showMenu: false,
-      menuClass: "",
-    };
-  }
+const Navigation = ({ config }) => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [menuClass, setMenuClass] = useState("");
 
-  toggleMenu = () => {
-    this.setState((prevState) => {
-      const menuClass = prevState.showMenu ? "" : "show-menu";
+  const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
 
-      return { showMenu: !prevState.showMenu, menuClass };
-    });
-  };
-
-  onMenuButtonClick = (e) => {
+  const onMenuButtonClick = (e) => {
     e.preventDefault();
-    this.toggleMenu();
+    setMenuClass(showMenu ? "" : "show-menu");
+    setShowMenu(!showMenu);
   };
 
-  hideMenu = () => {
-    this.setState({ showMenu: false, menuClass: "" });
+  const hideMenu = () => {
+    setShowMenu(false);
+    setMenuClass("");
   };
 
-  render() {
-    const { config } = this.props;
-    const { menuClass } = this.state;
-    const { menuLinks } = config;
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
-    return (
-      <nav className={`main-navigation ${menuClass}`}>
-        <button
-          id="menu-button"
-          className="menu-button"
-          type="button"
-          onClick={this.onMenuButtonClick}
-        >
-          <div className="menu-icon" />
-        </button>
-        <div className="navbar">
-          <div className="nav-title">
-            <Link className="menu-link" activeClassName="active" to="/#">
-              {config.siteTitleShort}
-            </Link>
-          </div>
-          <div className="menu-item">
-            {menuLinks.map((item) => {
-              return (
-                <Link
-                  className="menu-link"
-                  activeClassName="active"
-                  key={item.name}
-                  to={item.link}
-                  onClick={this.hideMenu}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
+  const { menuLinks } = config;
+
+  return (
+    <nav className={`main-navigation ${menuClass}`}>
+      <button
+        id="menu-button"
+        className="menu-button"
+        type="button"
+        onClick={onMenuButtonClick}
+      >
+        <div className="menu-icon" />
+      </button>
+      <div className="navbar">
+        <div className="nav-title">
+          <Link className="menu-link" activeClassName="active" to="/#">
+            {config.siteTitleShort}
+          </Link>
         </div>
-      </nav>
-    );
-  }
-}
+        <div className="menu-item">
+          {menuLinks.map((item) => {
+            return (
+              <Link
+                className="menu-link"
+                activeClassName="active"
+                key={item.name}
+                to={item.link}
+                onClick={hideMenu}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="bottom-menu-item">
+          <button type="button" onClick={toggleDarkMode}>
+            <span>{isDarkMode ? "🌅" : "🌙"}</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;

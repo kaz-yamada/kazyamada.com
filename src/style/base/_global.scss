@@ -17,9 +17,10 @@ li {
 }
 
 a {
-  &:hover:not(.button):not(.menu-link):not(.project-link):not(.user-link):not(.post-link) {
+  &:hover {
     color: $primary-color-dark;
-    border-bottom: $primary-color-dark solid 2px;
+    // border-bottom: $primary-color-dark solid 2px;
+    text-decoration: none;
 
     &.no-underline {
       border-bottom: none;

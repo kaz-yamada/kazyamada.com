@@ -11,15 +11,20 @@
     margin-top: $responsive-navbar-height;
   }
 
-  &.backround-light {
+  &.theme-light {
     background-color: $white;
+    color: $black;
+  }
+
+  &.theme-dark {
+    background-color: $background-dark;
+    color: $white;
   }
 
   @include large-breakpoint {
     .main-content {
       margin-top: 0;
       margin-left: $menu-width;
-      padding-left: $menu-gutter;
     }
 
     .footer {
@@ -30,25 +35,6 @@
 }
 
 .front-page {
-  .hero {
-    position: relative;
-    text-align: center;
-
-    @include medium-breakpoint {
-      margin-left: -$menu-gutter;
-      margin-right: -$gutter-size;
-    }
-
-    .user-links {
-      display: flex;
-      justify-content: center;
-
-      a {
-        margin: 0 0.5em;
-      }
-    }
-  }
-
   .scroll-down {
     position: absolute;
     height: $gutter-size * 2.5;
@@ -110,6 +96,9 @@
 .footer {
   display: flex;
   justify-content: center;
+  padding: $gutter-size;
+  background-color: $dark-grey;
+  color: $white;
 
   .row {
     width: 100%;
@@ -119,6 +108,14 @@
   .user-links {
     a {
       display: inline-block;
+    }
+
+    img {
+      width: auto;
+      height: auto;
+      max-height: 30px;
+      max-width: 30px;
+      margin-bottom: 0;
     }
 
     .icon {
@@ -146,6 +143,8 @@
     margin-left: 1em;
     margin-bottom: 0;
     padding: 9px;
+    font-weight: normal;
+    border: transparent;
   }
 }
 
@@ -165,18 +164,13 @@
   }
 
   a {
-    display: block;
+    display: flex;
     margin: 1em 0;
     padding: 1em;
     transition: background 0.4s;
-    border-radius: 5px;
 
     h3 {
-      margin: 0;
-    }
-
-    &:hover {
-      background: $hover-color;
+      margin-bottom: $gutter-size;
     }
   }
 }
@@ -202,17 +196,9 @@
 
     .button {
       display: inline-block;
-      padding: 6px 10px;
       font-size: 12px;
-      margin: 0;
-      background: transparent;
-      color: $primary-color;
-      border-color: $primary-color;
+      padding: 7px 10px;
       margin: 0 5px 3px 5px;
-
-      &:hover {
-        background: $hover-color;
-      }
     }
   }
 }

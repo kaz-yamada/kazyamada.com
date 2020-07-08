@@ -14,8 +14,8 @@ module.exports = {
         config.siteUrl,
         config.pathPrefix
       )}/logos/logo-1024.png`,
-      copyright: config.copyright
-    }
+      copyright: config.copyright,
+    },
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -24,15 +24,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "assets",
-        path: `${__dirname}/static/`
-      }
+        path: `${__dirname}/static/`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: `${__dirname}/content/`
-      }
+        path: `${__dirname}/content/`,
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -41,29 +41,23 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 690
-            }
+              maxWidth: 800,
+            },
           },
           {
-            resolve: "gatsby-remark-responsive-iframe"
+            resolve: "gatsby-remark-responsive-iframe",
           },
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
-          "gatsby-remark-autolink-headers"
-        ]
-      }
-    },
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: config.googleAnalyticsID
-      }
+          "gatsby-remark-autolink-headers",
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
-        color: config.themeColor
-      }
+        color: config.themeColor,
+      },
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -79,19 +73,8 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: "minimal-ui",
-        icons: [
-          {
-            src: "/logos/logo-48.png",
-            sizes: "48x48",
-            type: "image/png"
-          },
-          {
-            src: "/logos/logo-1024.png",
-            sizes: "1024x1024",
-            type: "image/png"
-          }
-        ]
-      }
+        icon: "src/assets/images/kaz.jpg",
+      },
     },
     "gatsby-plugin-offline",
     "gatsby-plugin-sass",
@@ -124,7 +107,7 @@ module.exports = {
           {
             serialize(ctx) {
               const { rssMetadata } = ctx.query.site.siteMetadata;
-              return ctx.query.allMarkdownRemark.edges.map(edge => ({
+              return ctx.query.allMarkdownRemark.edges.map((edge) => ({
                 categories: edge.node.frontmatter.tags,
                 date: edge.node.fields.date,
                 title: edge.node.frontmatter.title,
@@ -133,8 +116,8 @@ module.exports = {
                 guid: rssMetadata.site_url + edge.node.fields.slug,
                 custom_elements: [
                   { "content:encoded": edge.node.html },
-                  { author: config.userEmail }
-                ]
+                  { author: config.userEmail },
+                ],
               }));
             },
             query: `
@@ -163,16 +146,16 @@ module.exports = {
               }
             }
           `,
-            output: config.siteRss
-          }
-        ]
-      }
+            output: config.siteRss,
+          },
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: `${__dirname}/src/utils/typography.js`
-      }
-    }
-  ]
+        pathToConfigModule: `${__dirname}/src/utils/typography.js`,
+      },
+    },
+  ],
 };

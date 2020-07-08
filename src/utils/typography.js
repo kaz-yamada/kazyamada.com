@@ -2,20 +2,21 @@ import Typography from "typography";
 
 const typography = new Typography({
   baseFontSize: "16px",
-  headerFontFamily: [
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif"
+  googleFonts: [
+    {
+      name: "Tomorrow",
+      styles: [],
+    },
   ],
-  bodyFontFamily: [
-    "Helvetica Neue",
+  headerFontFamily: [
+    "Tomorrow",
     "Segoe UI",
     "Helvetica",
     "Arial",
-    "sans-serif"
-  ]
+    "sans-serif",
+  ],
+  bodyFontFamily: ["Tomorrow", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
+  bodyColor: "white"
 });
 
 export default typography;

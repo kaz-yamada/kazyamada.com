@@ -12,9 +12,9 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 
 - [x] Vue.js
 - [x] React
-  - [ ] Hooks API
+  - [x] Hooks API
   - [ ] Context API
-  - [ ] Redux
+  - [x] Redux
 - [x] jQuery
 - [x] Webpack
 - [x] ExpressJs
@@ -49,9 +49,11 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 
 ## WordPress
 
-- [x]
+- [x] Theme Development
 
 ## Laravel
+
+## CodeIgniter4
 
 # Development tools
 
@@ -85,12 +87,6 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 - [x] Native Android (Java)
 - [ ] Kotlin
 - [ ] React Native
-
-## Design Patterns
-
-- [ ] Model-Viewer-Presenter
-- [ ] Model-View-ViewModel
-- [ ] Model-View-Controller
 
 # Data Structures & Algorithms
 

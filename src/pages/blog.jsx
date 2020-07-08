@@ -15,7 +15,7 @@ const Blog = props => {
         <Helmet title={config.siteTitle} />
         <SEO />
         <div className="post-header">
-          <div className="thumbbail-container" />
+          <div className="header-background" />
           <div className="title">
             <h1>Blog</h1>
           </div>

@@ -2,62 +2,57 @@ const config = {
   siteTitle: "Kaz Yamada's very average website", // Site title.
   siteTitleShort: "Kaz Yamada", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Kaz Yamada", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteLogo: "/logos/kaz.jpg", // Logo used for SEO and manifest.
   siteUrl: "https://kazyamada.com", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "A GatsbyJS stater with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteFBAppID: "1825356251115265", // FB Application ID for using app insights
-  googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
+  siteFBAppID: "", // FB Application ID for using app insights
+  googleAnalyticsID: "", // GA tracking ID.
   disqusShortname: "https-kazyamada", // Disqus shortname.
   postDefaultCategoryID: "Tech", // Default category for posts.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
-  dateFormat: "MMMM Do, YYYY", // Date format for display.
+  dateFormat: "MMMM DD, YYYY", // Date format for display.
   userName: "Kaz Yamada", // Username to display in the author segment.
   userEmail: "kaz.yamada@outlook.com", // Email used for RSS feed's author segment
   userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Sydney, Australia", // User location to display in the author segment.
   userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
-  userDescription:
-    "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.
+  userDescription: "An average person living his average life.", // User description to display in the author segment.
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [
     {
       label: "GitHub",
       url: "https://github.com/kaz-yamada",
       iconClassName: "github",
-      image: "/logos/github-icon.png"
+      image: "/logos/GitHub-Mark-Light-64px.png",
     },
     {
       label: "Codepen",
       url: "https://codepen.io/kaz-yamada",
       iconClassName: "codepen",
-      image: "/logos/codepen-icon.png"
+      image: "/logos/codepen-icon.png",
     },
     {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/kaz-yamada/",
       iconClassName: "linkedin",
-      image: "/logos/linkedin-32.png"
-    }
+      image: "/logos/LI-In-Bug.png",
+    },
   ],
   menuLinks: [
     {
-      name: "About",
-      link: "/#about-me"
-    },
-    {
       name: "My Projects",
-      link: "/#projects"
+      link: "/#projects",
     },
     {
       name: "Blog",
-      link: "/blog/"
-    }
+      link: "/blog/",
+    },
   ],
   copyright: "Copyright © 2019. Kaz Yamada", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
-  backgroundColor: "#e0e0e0" // Used for setting manifest background color.
+  backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };
 
 // Validate

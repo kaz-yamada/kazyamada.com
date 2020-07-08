@@ -2,7 +2,7 @@ button,
 .button {
   -webkit-appearance: none;
   display: inline-block;
-  border: solid 1px $button-border-color;
+  border: solid 1px transparent;
   border-radius: $button-border-radius;
   background: $button-background;
   color: $button-color;
@@ -21,6 +21,7 @@ button,
   }
 
   &:hover {
+    color: $button-color;
     background: darken($button-background, 10%);
   }
 }

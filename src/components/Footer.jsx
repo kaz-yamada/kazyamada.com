@@ -8,12 +8,12 @@ const Footer = props => {
     <footer className="footer">
       <div className="row">
         <div className="medium-6">
-          <h4>
+          <span>
             {"A GatsbyJs site based on "}
             <a href="https://github.com/Vagr9K/gatsby-advanced-starter">
               Gatsby Advanced Starter.
             </a>
-          </h4>
+          </span>
         </div>
         <div className="medium-6">
           <div className="footer-links">

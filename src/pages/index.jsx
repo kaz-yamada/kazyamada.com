@@ -3,19 +3,17 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
-import SVG from "react-inlinesvg";
+import GitHubButton from "react-github-btn";
 
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
 import ProjectListing from "../components/ProjectListing";
 import SEO from "../components/SEO";
-import UserLinks from "../components/UserLinks";
 
 import config from "../../data/SiteConfig";
 import projects from "../../data/projects";
 
 import kaz from "../assets/images/kaz.jpg";
-import scroll from "../assets/images/scroll.svg";
 
 const Index = ({ data }) => {
   const postEdges = data.allMarkdownRemark.edges;
@@ -26,18 +24,6 @@ const Index = ({ data }) => {
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
         <div className="index-container">
-          <div className="hero full-height">
-            <div className="hero-text">
-              <h2>Hi I'm Kazuki</h2>
-              <p>I am a developer/programmer based in Sydney, Australia.</p>
-              <UserLinks config={config} />
-            </div>
-            <div className="scroll-down">
-              <Link to="/#about-me" className="no-underline">
-                <SVG src={scroll} />
-              </Link>
-            </div>
-          </div>
           <div className="front-page-contents">
             <section id="about-me">
               <div className="row vertical-gutter">
@@ -51,9 +37,22 @@ const Index = ({ data }) => {
                     <h5>
                       This is me (foreground) and my uncle's cat (background)
                     </h5>
+                    <GitHubButton
+                      href="https://github.com/kaz-yamada"
+                      data-size="large"
+                      className="home-github-button"
+                    >
+                      kaz-yamada
+                    </GitHubButton>
                   </div>
                 </div>
                 <div className="medium-6 side-gutter">
+                  <div>
+                    <h2>Hi I'm Kazuki</h2>
+                    <p>
+                      I am a developer/programmer based in Sydney, Australia.
+                    </p>
+                  </div>
                   <h1>About Me</h1>
                   <p>
                     For 2011-2015 I attended the University of Western Sydney
@@ -91,7 +90,7 @@ const Index = ({ data }) => {
                 </div>
               </div>
             </section>
-            <section className="vertical-margin">
+            <section className="vertical-margin side-gutter">
               <div className="section-title">
                 <h1>
                   Latest posts
@@ -104,7 +103,7 @@ const Index = ({ data }) => {
                 <PostListing postEdges={postEdges} />
               </div>
             </section>
-            <section id="projects" className="vertical-margin">
+            <section id="projects" className="vertical-margin side-gutter">
               <div className="section-title">
                 <h1>
                   Projects

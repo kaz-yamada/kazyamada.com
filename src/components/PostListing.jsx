@@ -4,56 +4,32 @@ import Img from "gatsby-image";
 
 import { formattedDate } from "../utils/functions";
 
-class PostListing extends React.Component {
-  getPostList = () => {
-    const postList = [];
-    const { postEdges } = this.props;
+const PostListing = ({ postEdges }) => {
+  return (
+    <div className="post-list">
+      {postEdges.map((postEdge) => {
+        const { node } = postEdge;
+        const { fields, frontmatter } = node;
 
-    postEdges.forEach(postEdge => {
-      postList.push({
-        path: postEdge.node.fields.slug,
-        tags: postEdge.node.frontmatter.tags,
-        thumbnail: postEdge.node.frontmatter.featuredImage,
-        title: postEdge.node.frontmatter.title,
-        date: postEdge.node.fields.date,
-        excerpt: postEdge.node.excerpt,
-        timeToRead: postEdge.node.timeToRead
-      });
-    });
-    return postList;
-  };
+        const { slug: path, date } = fields;
+        const { title, featuredImage } = frontmatter;
 
-  render() {
-    const postList = this.getPostList();
+        const image = featuredImage ? featuredImage.childImageSharp.fixed : "";
 
-    return (
-      <div className="post-list">
-        {postList.map(post => {
-          let thumbnail;
-
-          if (post.thumbnail) {
-            thumbnail = post.thumbnail.childImageSharp.fixed;
-          }
-
-          return (
-            <Link to={post.path} key={post.title} className="post-link">
-              <div className="post-item">
-                {thumbnail ? (
-                  <Img fixed={thumbnail} className="thumbnail" />
-                ) : (
-                  <div />
-                )}
-                <div className="post-text">
-                  <h3>{post.title}</h3>
-                  <span>{formattedDate(post.date)}</span>
-                </div>
+        return (
+          <div key={title} className="post-item">
+            <Link to={path} className="post-link">
+              {image ? <Img fixed={image} className="thumbnail" /> : <div />}
+              <div className="post-text">
+                <h3>{title}</h3>
+                <span>{formattedDate(date)}</span>
               </div>
             </Link>
-          );
-        })}
-      </div>
-    );
-  }
-}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default PostListing;

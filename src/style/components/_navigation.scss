@@ -68,6 +68,11 @@
         margin: 0;
       }
     }
+
+    .bottom-menu-item {
+      margin-top: auto;
+      align-self: center;
+    }
   }
 
   &.show-menu {

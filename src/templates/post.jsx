@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import Img from "gatsby-image";
 
 import Layout from "../layout";
 import UserInfo from "../components/UserInfo";
@@ -11,62 +11,66 @@ import config from "../../data/SiteConfig";
 import { formattedDate } from "../utils/functions";
 
 export default class PostTemplate extends Component {
-  getThumbnail = post => {
-    let image = "";
+  getThumbnail = (post) => {
+    const { featuredImage } = post;
 
-    // if (post.cover) image = post.cover;
-
-    if (post.featuredImage) {
-      image = post.featuredImage.childImageSharp.fluid;
+    if (featuredImage) {
+      return featuredImage.childImageSharp.fixed;
     }
 
-    return image;
+    return "";
   };
 
   render() {
     const { data, pageContext } = this.props;
+    const { markdownRemark: postNode } = data;
+    const { frontmatter: post } = postNode;
     const { slug } = pageContext;
-    const postNode = data.markdownRemark;
-    const post = postNode.frontmatter;
+
+    const { imageCredit } = post;
+
     const date = formattedDate(post.date);
     const image = this.getThumbnail(post);
 
-    if (!post.id) {
-      post.id = slug;
-    }
+    if (!post.id) post.id = slug;
+
     if (!post.category_id) {
       post.category_id = config.postDefaultCategoryID;
     }
 
     return (
       <Layout>
-        <div className="post template-post">
+        <div className="post template-post side-gutter">
           <Helmet>
             <title>{`${post.title} | ${config.siteTitle}`}</title>
           </Helmet>
           <SEO postPath={slug} postNode={postNode} postSEO />
           <div className="post-header">
-            <div className="thumbbail-container">
-              <BackgroundImage fluid={image} />
-            </div>
-            <div className="title">
-              <h1>{post.title}</h1>
-            </div>
-            <div className="post-date">
-              <h3>{date}</h3>
+            <div className="header-background" />
+            <div className="header-contents">
+              {image ? <Img fixed={image} className="thumbnail" /> : <div />}
+              <div className="title-bar">
+                <div className="title">
+                  <h1>{post.title}</h1>
+                </div>
+                <div className="post-date">
+                  <h3>{date}</h3>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="post-body">
-            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-            <UserInfo config={config} />
-          </div>
-          <div className="post-meta">
+          <div className="post-meta vertical-gutter">
+            {imageCredit && <div className="image-credit">{imageCredit}</div>}
             {post.tags && (
               <div className="post-tags">
                 <span className="label">Tags: </span>
                 <PostTags tags={post.tags} />
               </div>
             )}
+          </div>
+          <div className="post-body">
+            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+            <UserInfo config={config} />
           </div>
         </div>
       </Layout>
@@ -86,10 +90,11 @@ export const pageQuery = graphql`
         date
         category
         tags
+        imageCredit
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_noBase64
+            fixed(width: 150, height: 150) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
