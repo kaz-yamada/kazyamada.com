@@ -7,13 +7,18 @@
 
   .main-content {
     padding-bottom: $gutter-size * 2;
+    padding-top: $gutter-size * 2;
     flex: 1;
     margin-top: $responsive-navbar-height;
   }
 
   &.theme-light {
-    background-color: $white;
+    background-color: $background-light;
     color: $black;
+
+    a {
+      color: #1d3842 !important;
+    }
   }
 
   &.theme-dark {

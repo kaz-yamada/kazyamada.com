@@ -91,6 +91,10 @@ const Index = ({ data }) => {
               </div>
             </section>
             <section className="vertical-margin side-gutter">
+              <h1>My Personal Projects</h1>
+              <ProjectListing projects={projects} />
+            </section>
+            <section className="vertical-margin side-gutter">
               <div className="section-title">
                 <h1>
                   Latest posts
@@ -112,7 +116,6 @@ const Index = ({ data }) => {
                   </a>
                 </h1>
               </div>
-              <ProjectListing projects={projects} />
             </section>
           </div>
         </div>

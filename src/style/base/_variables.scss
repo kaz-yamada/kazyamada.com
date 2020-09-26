@@ -7,7 +7,7 @@ $breakpoints: (
 );
 
 $color-palette: (
-  primary: #ad0e9c,
+  primary: #44d5da,
   secondary: #096f88,
   success: #3adb76,
   warning: #ffae00,
@@ -23,7 +23,8 @@ $menu-width: 200px;
 $menu-gutter: $gutter-size * 2.5;
 $responsive-navbar-height: 60px;
 
-$background-dark: #0d1009;
+$background-dark: #090c15;
+$background-light: #ffffff;
 
 $black: #0d1009;
 $grey: #767676;
@@ -37,4 +38,4 @@ $button-border-style: solid;
 $button-border-color: $white;
 $button-border-radius: 5px;
 $button-background: $primary-color;
-$button-color: $white;
+$button-color: $black;
