@@ -8,7 +8,7 @@ import GitHubButton from "react-github-btn";
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
 import ProjectListing from "../components/ProjectListing";
-import SEO from "../components/SEO";
+import SEO from "../components/SEO"; 
 
 import config from "../../data/SiteConfig";
 import projects from "../../data/projects";
@@ -37,14 +37,6 @@ const Index = ({ data }) => {
                     <h5>
                       This is me (foreground) and my uncle's cat (background)
                     </h5>
-                  </div>
-                </div>
-                <div className="medium-6 side-gutter">
-                  <div>
-                    <h2>Hi I'm Kazuki</h2>
-                    <p>
-                      I am a developer/programmer based in Sydney, Australia.
-                    </p>
                     <GitHubButton
                       href="https://github.com/kaz-yamada"
                       data-size="large"
@@ -52,21 +44,27 @@ const Index = ({ data }) => {
                     >
                       kaz-yamada
                     </GitHubButton>
-                  </div>
+                  </div> 
                 </div>
-              </div>
-              <div className="row vertical-gutter">
-                <h1>About Me</h1>
-                <p>
-                  For 2011-2015 I attended the University of Western Sydney
-                  studying a Bachelor's Degree in Information Technology,
-                  earning high distinctions in Programing fundamentals, Database
-                  Design and Development, Programming Techniques, Technologies
-                  for Web applications, Fundamentals of Mathematics, Design
-                  Science. Worked part time as a clerk druing that time. Left
-                  UWS to enrol in University of Technology, Sydney in 2016 and
-                  graduated 2019.{" "}
-                </p>
+                <div className="medium-6 side-gutter">
+                  <div>
+                    <h2>Hi I'm Kazuki</h2>
+                    <p>
+                      I am a developer/programmer based in Sydney, Australia.
+                    </p>
+                  </div>
+                  <h1>About Me</h1>
+                  <p>
+                    For 2011-2015 I attended the University of Western Sydney
+                    studying a Bachelor's Degree in Information Technology,
+                    earning high distinctions in Programing fundamentals,
+                    Database Design and Development, Programming Techniques,
+                    Technologies for Web applications, Fundamentals of
+                    Mathematics, Design Science. Worked part time as a clerk
+                    druing that time. Left UWS to enrol in University of
+                    Technology, Sydney in 2016 and graduated 2019.
+                  </p>
+                </div>
               </div>
               <div className="row vertical-gutter">
                 <div className="medium-12">
@@ -92,7 +90,7 @@ const Index = ({ data }) => {
                 </div>
               </div>
             </section>
-            <section id="projects" className="vertical-margin side-gutter">
+            <section className="vertical-margin side-gutter">
               <h1>My Personal Projects</h1>
               <ProjectListing projects={projects} />
             </section>

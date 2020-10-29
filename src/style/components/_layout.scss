@@ -6,10 +6,8 @@
   flex-flow: column;
 
   .main-content {
-    padding-bottom: $gutter-size * 2;
-    padding-top: $gutter-size * 2;
-    flex: 1;
     margin-top: $responsive-navbar-height;
+    flex: 1;
   }
 
   &.theme-light {
@@ -17,7 +15,11 @@
     color: $black;
 
     a {
-      color: #1d3842 !important;
+      color: #1d3842;
+    }
+
+    .footer a {
+      color: $primary-color;
     }
   }
 
@@ -28,13 +30,9 @@
 
   @include large-breakpoint {
     .main-content {
-      margin-top: 0;
-      margin-left: $menu-width;
-    }
-
-    .footer {
-      margin-left: $menu-width;
-      padding-left: $menu-gutter;
+      margin: $responsive-navbar-height auto 0;
+      width: 100%;
+      max-width: 1200px;
     }
   }
 }
@@ -193,7 +191,7 @@
     }
   }
 
-  .buttons {
+  .project-buttons {
     flex: 0;
     display: flex;
     align-items: center;
@@ -201,9 +199,8 @@
 
     .button {
       display: inline-block;
-      font-size: 12px;
       padding: 7px 10px;
-      margin: 0 5px 3px 5px;
+      margin-right: 10px;
     }
   }
 }

@@ -1,19 +1,29 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
-// Getting dark mode information from OS!
-// You need macOS Mojave + Safari Technology Preview Release 68 to test this currently.
-// const supportsDarkMode = () =>
-//   window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+const storageId = "darkmode";
 
-const ThemeProvider = (props) => {
+const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const { children } = props;
+  const toggleTheme = () => {
+    const mode = !isDarkMode;
+    localStorage.setItem(storageId, JSON.stringify(mode));
+    setIsDarkMode(mode);
+  };
+
+  useEffect(() => {
+    const savedMode = JSON.parse(localStorage.getItem(storageId));
+    if (savedMode !== null) {
+      setIsDarkMode(savedMode);
+    } else {
+      setIsDarkMode(true);
+    }
+  }, []);
 
   return (
-    <ThemeContext.Provider value={[isDarkMode, setIsDarkMode]}>
+    <ThemeContext.Provider value={[isDarkMode, toggleTheme]}>
       {children}
     </ThemeContext.Provider>
   );

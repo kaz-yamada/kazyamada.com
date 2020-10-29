@@ -42,25 +42,27 @@ const Navigation = ({ config }) => {
             {config.siteTitleShort}
           </Link>
         </div>
-        <div className="menu-item">
-          {menuLinks.map((item) => {
-            return (
-              <Link
-                className="menu-link"
-                activeClassName="active"
-                key={item.name}
-                to={item.link}
-                onClick={hideMenu}
-              >
-                {item.name}
-              </Link>
-            );
-          })}
-        </div>
-        <div className="bottom-menu-item">
-          <button type="button" onClick={toggleDarkMode}>
-            <span>{isDarkMode ? "🌅" : "🌙"}</span>
-          </button>
+        <div className="menu-right">
+          <div className="menu-links">
+            {menuLinks.map((item) => {
+              return (
+                <Link
+                  className="menu-link"
+                  activeClassName="active"
+                  key={item.name}
+                  to={item.link}
+                  onClick={hideMenu}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="theme-toggle">
+            <button type="button" onClick={toggleDarkMode}>
+              <span>{isDarkMode ? "🌅" : "🌙"}</span>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

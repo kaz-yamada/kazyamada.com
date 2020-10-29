@@ -1,10 +1,9 @@
 import React from "react";
-import GitHubButton from "react-github-btn";
 
 const ProjectListing = ({ projects }) => {
   return (
     <div className="project-list">
-      {projects.map(project => (
+      {projects.map((project) => (
         <div className="project" key={project.title}>
           <div className="project-info">
             <h2>
@@ -19,14 +18,15 @@ const ProjectListing = ({ projects }) => {
             </h2>
             <p>{project.description}</p>
           </div>
-          <div className="buttons">
-            <GitHubButton
+          <div className="project-buttons">
+            <a
+              className="button"
               href={project.source}
-              data-size="large"
-              data-show-count="true"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Source
-            </GitHubButton>
+            </a>
             {project.path && (
               <a
                 className="button"

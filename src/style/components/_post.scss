@@ -13,19 +13,10 @@ $header-height: 250px;
   .header-background {
     overflow: hidden;
     position: absolute !important;
-    top: $responsive-navbar-height;
     left: 0;
     width: 100%;
     height: $header-height;
     z-index: 0;
-
-    @include large-breakpoint {
-      & {
-        top: 0;
-        left: $menu-width;
-        width: calc(100% - #{$menu-width});
-      }
-    }
 
     background-repeat: no-repeat;
     background-size: cover;

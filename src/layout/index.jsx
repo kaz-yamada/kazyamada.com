@@ -27,6 +27,7 @@ const Layout = (props) => {
 
 export default (props) => {
   const { children } = props;
+
   return (
     <ThemeProvider>
       <Layout>{children}</Layout>
