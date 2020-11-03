@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Helmet from "react-helmet";
 
-import ThemeContext from "../context/ThemeContext";
+import ThemeContext, { initialState } from "../context/ThemeContext";
 
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
@@ -12,7 +12,7 @@ import "../style/main.scss";
 export default (props) => {
   const { children, LocalTitle } = props;
 
-  const { state } = useContext(ThemeContext);
+  const { state = initialState } = useContext(ThemeContext);
   const { theme } = state;
 
   return (

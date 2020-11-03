@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 
-import ThemeContext from "../context/ThemeContext";
+import ThemeContext, { initialState } from "../context/ThemeContext";
 import { toggleTheme } from "../context/ThemeContext/actions";
 
 const Navigation = ({ config }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [menuClass, setMenuClass] = useState("");
 
-  const { state, dispatch } = useContext(ThemeContext);
+  const { state = initialState, dispatch } = useContext(ThemeContext);
   const { theme } = state;
 
   const onMenuButtonClick = (e) => {

@@ -1,8 +1,9 @@
 import React, { createContext, useEffect, useReducer } from "react";
+import { getLocalStorage, setLocalStorage } from "../../utils/functions";
 import actionTypes, { setTheme } from "./actions";
 
 const storageId = "theme";
-const savedStore = JSON.parse(localStorage.getItem(storageId));
+const savedStore = getLocalStorage(storageId);
 
 const initialState = savedStore || {
   theme: "light",
@@ -16,7 +17,7 @@ const themeReducer = (state, action) => {
       const theme = state.theme === "light" ? "dark" : "light";
       const newState = { ...state, theme };
 
-      localStorage.setItem(storageId, JSON.stringify(newState));
+      setLocalStorage(storageId, newState);
 
       return newState;
     }
@@ -45,4 +46,4 @@ const ThemeProvider = ({ children }) => {
 };
 
 export default ThemeContext;
-export { ThemeProvider };
+export { ThemeProvider, initialState };

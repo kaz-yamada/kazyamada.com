@@ -17,4 +17,21 @@ const performScroll = (element) => {
   });
 };
 
-export { formattedDate, performScroll };
+const setLocalStorage = (id, value) => {
+  if (typeof window !== "undefined") {
+    const windowGlobal = window;
+    windowGlobal.localStorage.setItem(id, JSON.stringify(value));
+  } else {
+    localStorage.setItem(id, JSON.stringify(value));
+  }
+};
+
+const getLocalStorage = (id) => {
+  if (typeof window !== "undefined") {
+    const windowGlobal = window;
+    return JSON.parse(windowGlobal.localStorage.getItem(id));
+  }
+  return undefined;
+};
+
+export { formattedDate, performScroll, setLocalStorage, getLocalStorage };
