@@ -94,20 +94,18 @@ $header-height: 250px;
   .post-tag-container {
     display: flex;
 
-    a {
+    .button {
       margin-right: 6px;
+      font-size: 12px;
+      padding: 6px;
+      color: $black;
+      background-color: $light-grey;
+      border-color: $black;
+      margin-bottom: 0;
 
-      button {
-        font-size: 12px;
-        padding: 6px;
-        color: $black;
-        background-color: $light-grey;
-        border-color: $black;
-        margin-bottom: 0;
-
-        &:hover {
-          background-color: darken($light-grey, 10%);
-        }
+      &:hover {
+        background-color: darken($light-grey, 10%);
+        border-color: black;
       }
     }
   }

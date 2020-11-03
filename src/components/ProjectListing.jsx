@@ -18,7 +18,7 @@ const ProjectListing = ({ projects }) => {
             </h2>
             <p>{project.description}</p>
           </div>
-          <div className="project-buttons">
+          <div className="button-list">
             <a
               className="button"
               href={project.source}

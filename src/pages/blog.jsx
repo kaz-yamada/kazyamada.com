@@ -6,9 +6,7 @@ import PostListing from "../components/PostListing";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 
-const Blog = props => {
-  const { data } = props;
-  // const postEdges = this.props.data.allMarkdownRemark.edges;
+const Blog = ({ data }) => {
   return (
     <Layout>
       <div className="blog">

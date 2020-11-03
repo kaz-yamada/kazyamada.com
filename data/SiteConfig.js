@@ -49,6 +49,10 @@ const config = {
       name: "Blog",
       link: "/blog/",
     },
+    {
+      name: "About",
+      link: "/about/",
+    },
   ],
   copyright: "Copyright © 2019. Kaz Yamada", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.

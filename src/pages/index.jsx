@@ -3,7 +3,6 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
-import GitHubButton from "react-github-btn";
 
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
@@ -16,7 +15,7 @@ import projects from "../../data/projects";
 import kaz from "../../content/images/kaz.jpg";
 
 const Index = ({ data }) => {
-  const postEdges = data.allMarkdownRemark.edges;
+  const { edges: postEdges } = data.allMarkdownRemark;
 
   return (
     <Layout>
@@ -43,52 +42,21 @@ const Index = ({ data }) => {
                   <div>
                     <h2>Hi I'm Kazuki</h2>
                     <p>
-                      I am a developer/programmer based in Sydney, Australia.
+                      I'm a front end developer and a university graduate living
+                      in Sydney, Australia.
                     </p>
-                    <GitHubButton
-                      href="https://github.com/kaz-yamada"
-                      data-size="large"
-                      className="home-github-button"
-                    >
-                      kaz-yamada
-                    </GitHubButton>
+                    <div className="button-list">
+                      <a
+                        href="https://github.com/kaz-yamada"
+                        className="button"
+                      >
+                        Github
+                      </a>
+                      <Link className="button" to="/about/">
+                        About Me
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="row vertical-gutter">
-                <h1>About Me</h1>
-                <p>
-                  For 2011-2015 I attended the University of Western Sydney
-                  studying a Bachelor's Degree in Information Technology,
-                  earning high distinctions in Programing fundamentals, Database
-                  Design and Development, Programming Techniques, Technologies
-                  for Web applications, Fundamentals of Mathematics, Design
-                  Science. Worked part time as a clerk druing that time. Left
-                  UWS to enrol in University of Technology, Sydney in 2016 and
-                  graduated 2019.{" "}
-                </p>
-              </div>
-              <div className="row vertical-gutter">
-                <div className="medium-12">
-                  <h2>My skills</h2>
-                  <p>
-                    In addition to the programming languages that were part of
-                    my courses I've been learning on my own using the vast (and
-                    mostly free) resources available on the internet. I've
-                    compiled a list of what I've <a href="/learn">Learned</a>{" "}
-                    over the years but most of my strength is in front-end
-                    development, but select skills include:
-                  </p>
-                </div>
-                <div className="medium-12 learn-list">
-                  <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>React</li>
-                    <li>Javascript/ES6</li>
-                    <li>Android (Java)</li>
-                    <li>Git</li>
-                  </ul>
                 </div>
               </div>
             </section>

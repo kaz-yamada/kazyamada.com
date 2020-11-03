@@ -1,0 +1,34 @@
+.index-layout {
+  &.theme-light {
+    background-color: $background-light;
+    color: $black;
+
+    a {
+      color: #1d3842;
+      border-bottom: solid 2px $primary-color;
+
+      &:hover {
+        border-bottom-color: $primary-color-dark;
+      }
+    }
+
+    .anchor.before {
+      border-bottom-width: 0;
+    }
+
+    .button {
+      border-bottom-color: transparent;
+      border-bottom-width: 1px;
+    }
+
+    .post-link,
+    .menu-link {
+      border-bottom: none;
+    }
+
+    .footer a {
+      color: $primary-color;
+      border-bottom: none;
+    }
+  }
+}

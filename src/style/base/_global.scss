@@ -8,14 +8,6 @@ html {
   box-sizing: border-box;
 }
 
-ul {
-  margin-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
 a {
   &:hover {
     color: $primary-color-dark;

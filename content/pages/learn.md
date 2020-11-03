@@ -13,7 +13,7 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 - [x] Vue.js
 - [x] React
   - [x] Hooks API
-  - [ ] Context API
+  - [x] Context API
   - [x] Redux
 - [x] jQuery
 - [x] Webpack
@@ -34,16 +34,6 @@ I'd like to learn a lot of things, here's a list of what I know (and what I hope
 
 - [x] Bootstrap/Reactstrap
 - [x] Material UI
-
-# C++
-
-# Java
-
-## Spring
-
-# Python
-
-## Django
 
 # PHP
 

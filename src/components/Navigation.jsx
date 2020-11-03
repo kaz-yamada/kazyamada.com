@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 
-import { ThemeContext } from "../context/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
+import { toggleTheme } from "../context/ThemeContext/actions";
 
 const Navigation = ({ config }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [menuClass, setMenuClass] = useState("");
 
-  const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
+  const { state, dispatch } = useContext(ThemeContext);
+  const { theme } = state;
 
   const onMenuButtonClick = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Navigation = ({ config }) => {
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    dispatch(toggleTheme());
   };
 
   const { menuLinks } = config;
@@ -38,7 +40,12 @@ const Navigation = ({ config }) => {
       </button>
       <div className="navbar">
         <div className="nav-title">
-          <Link className="menu-link" activeClassName="active" to="/#">
+          <Link
+            className="menu-link"
+            activeClassName="active"
+            onClick={hideMenu}
+            to="/#"
+          >
             {config.siteTitleShort}
           </Link>
         </div>
@@ -60,7 +67,7 @@ const Navigation = ({ config }) => {
           </div>
           <div className="theme-toggle">
             <button type="button" onClick={toggleDarkMode}>
-              <span>{isDarkMode ? "🌅" : "🌙"}</span>
+              <span>{theme === "dark" ? "🌅" : "🌙"}</span>
             </button>
           </div>
         </div>
