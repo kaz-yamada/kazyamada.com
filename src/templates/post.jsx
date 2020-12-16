@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -10,73 +10,63 @@ import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 import { formattedDate } from "../utils/functions";
 
-export default class PostTemplate extends Component {
-  getThumbnail = (post) => {
-    const { featuredImage } = post;
+const PostTemplate = ({ data, pageContext }) => {
+  const { markdownRemark: postNode } = data;
+  const { frontmatter } = postNode;
+  const { slug } = pageContext;
 
-    if (featuredImage) {
-      return featuredImage.childImageSharp.fixed;
-    }
+  const { imageCredit } = frontmatter;
 
-    return "";
-  };
+  const getThumbnail = (featuredImage) =>
+    featuredImage ? featuredImage.childImageSharp.fixed : "";
 
-  render() {
-    const { data, pageContext } = this.props;
-    const { markdownRemark: postNode } = data;
-    const { frontmatter: post } = postNode;
-    const { slug } = pageContext;
+  const date = formattedDate(frontmatter.date);
+  const image = getThumbnail(frontmatter.featuredImage);
 
-    const { imageCredit } = post;
+  if (!frontmatter.id) frontmatter.id = slug;
 
-    const date = formattedDate(post.date);
-    const image = this.getThumbnail(post);
+  if (!frontmatter.category_id) {
+    frontmatter.category_id = config.postDefaultCategoryID;
+  }
 
-    if (!post.id) post.id = slug;
-
-    if (!post.category_id) {
-      post.category_id = config.postDefaultCategoryID;
-    }
-
-    return (
-      <Layout>
-        <div className="post template-post side-gutter">
-          <Helmet>
-            <title>{`${post.title} | ${config.siteTitle}`}</title>
-          </Helmet>
-          <SEO postPath={slug} postNode={postNode} postSEO />
-          <div className="post-header">
-            <div className="header-background" />
-            <div className="header-contents">
-              {image ? <Img fixed={image} className="thumbnail" /> : <div />}
-              <div className="title-bar">
-                <div className="title">
-                  <h1>{post.title}</h1>
-                </div>
-                <div className="post-date">
-                  <h3>{date}</h3>
-                </div>
+  return (
+    <Layout>
+      <div className="post template-post side-gutter">
+        <Helmet>
+          <title>{`${frontmatter.title} | ${config.siteTitle}`}</title>
+        </Helmet>
+        <SEO postPath={slug} postNode={postNode} postSEO />
+        <div className="post-header">
+          <div className="header-background" />
+          <div className="header-contents">
+            {image ? <Img fixed={image} className="thumbnail" /> : <div />}
+            <div className="title-bar">
+              <div className="title">
+                <h1>{frontmatter.title}</h1>
+              </div>
+              <div className="post-date">
+                <h3>{date}</h3>
               </div>
             </div>
           </div>
-          <div className="post-meta vertical-gutter">
-            {imageCredit && <div className="image-credit">{imageCredit}</div>}
-            {post.tags && (
-              <div className="post-tags">
-                <span className="label">Tags: </span>
-                <PostTags tags={post.tags} />
-              </div>
-            )}
-          </div>
-          <div className="post-body">
-            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-            <UserInfo config={config} />
-          </div>
         </div>
-      </Layout>
-    );
-  }
-}
+        <div className="post-meta vertical-gutter">
+          {imageCredit && <div className="image-credit">{imageCredit}</div>}
+          {frontmatter.tags && (
+            <div className="post-tags">
+              <span className="label">Tags: </span>
+              <PostTags tags={frontmatter.tags} />
+            </div>
+          )}
+        </div>
+        <div className="post-body">
+          <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+          <UserInfo config={config} />
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
@@ -106,3 +96,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default PostTemplate;

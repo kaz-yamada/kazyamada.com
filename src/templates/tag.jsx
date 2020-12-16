@@ -5,23 +5,20 @@ import Layout from "../layout";
 import PostListing from "../components/PostListing";
 import config from "../../data/SiteConfig";
 
-export default class TagTemplate extends React.Component {
-  render() {
-    const { data, pageContext } = this.props;
-    const { tag } = pageContext;
-    const postEdges = data.allMarkdownRemark.edges;
-    return (
-      <Layout>
-        <div className="tag-container">
-          <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
-          <PostListing postEdges={postEdges} />
-        </div>
-      </Layout>
-    );
-  }
-}
+const TagTemplate = ({ data, pageContext }) => {
+  const { tag } = pageContext;
+  const postEdges = data.allMarkdownRemark.edges;
 
-/* eslint no-undef: "off" */
+  return (
+    <Layout>
+      <div className="tag-container">
+        <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
+        <PostListing postEdges={postEdges} />
+      </div>
+    </Layout>
+  );
+};
+
 export const pageQuery = graphql`
   query TagPage($tag: String) {
     allMarkdownRemark(
@@ -48,3 +45,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default TagTemplate;

@@ -4,7 +4,10 @@ const config = require("./data/SiteConfig");
 module.exports = {
   pathPrefix: config.pathPrefix === "" ? "/" : config.pathPrefix,
   siteMetadata: {
+    author: config.userName,
     siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+    title: config.siteTitle,
+    description: config.siteDescription,
     rssMetadata: {
       site_url: urljoin(config.siteUrl, config.pathPrefix),
       feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
@@ -38,6 +41,12 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          {
+            resolve: "gatsby-remark-code-titles",
+            options: {
+              className: "prism-code-title",
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -83,7 +92,7 @@ module.exports = {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
         description: config.siteDescription,
-        start_url: config.pathPrefix,
+        start_url: "/", // config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: "minimal-ui",

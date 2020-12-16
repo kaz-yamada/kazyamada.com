@@ -3,11 +3,9 @@ import { getLocalStorage, setLocalStorage } from "../../utils/functions";
 import actionTypes, { setTheme } from "./actions";
 
 const storageId = "theme";
-const savedStore = getLocalStorage(storageId);
+const savedState = getLocalStorage(storageId);
 
-const initialState = savedStore || {
-  theme: "light",
-};
+const initialState = savedState !== null ? savedState : { theme: "light" };
 
 const ThemeContext = createContext(initialState);
 

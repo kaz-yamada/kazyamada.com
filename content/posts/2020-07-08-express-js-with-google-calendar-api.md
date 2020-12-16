@@ -27,14 +27,14 @@ Disclaimer: I'm very much a novice when working with Google APIs and backend stu
 
 Create a directory in where we will be working out of.
 
-```
+```shell:title=CLI
 mkdir express-app
 cd express-app
 ```
 
 Create a package.json file with and follow the on screen prompts until you reach the end.
 
-```
+```shell:title=CLI
 npm init
 ```
 
@@ -42,15 +42,13 @@ npm init
 
 Install ExpressJS and dotenv save it in the dependencies list.
 
-```
+```shell:title=CLI
 npm install express dotenv
 ```
 
 Create an entry file `index.js` and return a simple message
 
-<div class="post-filename">index.js</div>
-
-```javascript
+```js:title=index.js
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -64,7 +62,7 @@ app.listen(port, () =>
 
 Enter the command below in your terminal to run the express server
 
-```terminal
+```shell:title=CLI
 node index.js
 ```
 
@@ -74,13 +72,13 @@ Now your express app is running on http://localhost:3000, now you can open that 
 
 During development if you dont want to shut down and start up the server every time you make a change we can install [Nodemon](https://nodemon.io/) as dev dependency.
 
-```terminal
+```shell:title=CLI
 npm install -D nodemon
 ```
 
 Now use the following command to run your project:
 
-```terminal
+```shell:title=CLI
 npx nodemon index.js
 ```
 
@@ -123,7 +121,7 @@ You should be returned to the OAuth playground, you should be able to get a refr
 
 Now that we have everything to make calls to the Calendar API, we'll save them to our .env file in the root of our project. Since we're accessing some sensitive stuff make sure to keep the secret and refresh token out of your Git commits.
 
-```env
+```editorconfig:title=.env
 CLIENT_ID='client id here'
 CLIENT_SECRET='client secret here'
 REFRESH_TOKEN ='refresh token here'
@@ -135,7 +133,7 @@ REFRESH_TOKEN ='refresh token here'
 
 To make calls to Google's API, we'll need to install the Google API client for Nodejs
 
-```terminal
+```shell:title=CLI
 npm install googleapis
 ```
 
@@ -143,9 +141,7 @@ npm install googleapis
 
 Once that's done we'll write a function that loads the OAuth client and set our credentials that we got earlier. The function below sets the refresh token to used globally, so any calls we make with the client will use the token that we have set.
 
-<div class="post-filename">apiClient.js</div>
-
-```js
+```js:title=apiClient.js
 const { google } = require("googleapis");
 
 const token = process.env.REFRESH_TOKEN;
@@ -184,9 +180,7 @@ const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
 The calendar id is set to "primary", this is the default calendar for your Google account. To create an event the required fields are the start and end time for the event,
 
-<div class="post-filename">apiClient.js</div>
-
-```js
+```js:title=apiClient.js
 const createEvent = (callback) => {
   // Instance of calendar
   const calendar = google.calendar({ version: "v3" });
@@ -227,9 +221,7 @@ https://developers.google.com/calendar/v3/reference/freebusy/query
 
 In the case if we want to check if there's already an event in the time slot, we'll make a freebusy query to check for events
 
-<div class="post-filename">apiClient.js</div>
-
-```js
+```js:title=apiClient.js
 const getEvents = (instance, event, callback) => {
   const calendarId = "primary";
   const query = {
@@ -258,9 +250,7 @@ const getEvents = (instance, event, callback) => {
 
 We can modify the `createEvent` function to use the `getEvents` query:
 
-<div class="post-filename">apiClient.js</div>
-
-```js
+```js:title=apiClient.js
 const createEvent = (callback) => {
   // Instance of calendar
   const calendar = google.calendar({ version: "v3" });
@@ -335,9 +325,7 @@ const listEvents = (callback) => {
 
 Finally we can put everything together with the express server, we'll add 2 routes: one to get
 
-<div class="post-filename">index.js</div>
-
-```js
+```js:title=apiClient.js
 require("dotenv").config();
 const express = require("express");
 const { loadClient, listEvents, createEvent } = require("./apiClient");
@@ -366,13 +354,13 @@ app.listen(port, () =>
 
 Now start up your server with
 
-```terminal
+```shell:title=CLI
 node index.js
 ```
 
 Then you can make a GET request to localhost:3000 and a POST request to localhost:3000/create to list and create events respectively.
 
-```bash
+```shell:title=CLI
 curl --request POST localhost:3000/create
 curl localhost:3000
 ```
