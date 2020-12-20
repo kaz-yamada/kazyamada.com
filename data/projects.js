@@ -2,6 +2,7 @@ export default [
   {
     title: "Vue Sudoku",
     source: "https://github.com/kaz-yamada/vue-sudoku",
+    path: "https://kaz-yamada.github.io/vue-sudoku/",
     description: "An online sudoku game built with VueJS and TypeScript",
   },
   {
