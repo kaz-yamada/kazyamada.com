@@ -4,12 +4,8 @@
     color: $black;
 
     a {
-      color: #1d3842;
-      border-bottom: solid 2px $primary-color;
-
-      &:hover {
-        border-bottom-color: $primary-color-dark;
-      }
+      color: $secondary-color;
+      //   border-bottom: solid 2px $primary-color;
     }
 
     .anchor.before {
@@ -17,7 +13,7 @@
     }
 
     .button {
-      //   border-bottom-color: transparent;
+      color: $black;
       border-bottom-width: 1px;
     }
 

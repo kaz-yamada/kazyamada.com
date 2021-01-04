@@ -51,25 +51,69 @@
   }
 }
 
-.home-picture {
-  max-width: 200px;
-  margin: auto;
+.blurb {
+  //   margin-bottom: 40px;
+  //   margin-left: -$gutter-size * 2;
+  margin: 0 (-$gutter-size) 40px;
 
-  img {
-    display: block;
-    border-radius: 1em;
-  }
+  .row {
+    background-color: $primary-color;
+    color: $black;
 
-  h5 {
-    text-align: center;
+    h2,
+    h5 {
+      font-weight: normal;
+    }
+
+    .blurb-text {
+      .button-list {
+        .button {
+          background-color: $secondary-color;
+          color: $white;
+
+          &:hover {
+            background-color: darken($color: $secondary-color, $amount: 10);
+          }
+        }
+      }
+
+      padding: $gutter-size;
+    }
+
+    .blurb-picture {
+      max-width: 200px;
+      margin: auto;
+
+      img {
+        display: block;
+        border-radius: 1em;
+      }
+
+      h5 {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
   }
 
   @include medium-breakpoint {
-    margin: 0;
-    text-align: left;
+    &::after {
+      content: "";
+      display: block;
+      height: 80px;
 
-    img {
-      margin: 0 0 $gutter-size;
+      background-image: linear-gradient(
+        to right bottom,
+        $primary-color 0%,
+        $primary-color 50%,
+        transparent 50%
+      );
+    }
+
+    .blurb-picture {
+      img {
+        margin: 0 0 $gutter-size;
+      }
     }
   }
 }
@@ -129,7 +173,7 @@
   a {
     @extend .button;
 
-    font-size: 12px;
+    font-size: 18px;
     margin-left: 1em;
     margin-bottom: 0;
     padding: 9px;
@@ -159,7 +203,7 @@
     border-radius: 5px;
 
     &:hover {
-      background-color: rgba($color: $grey, $alpha: 0.7);
+      background-color: rgba(#f3f3f3, $alpha: 0.7);
     }
 
     h3 {

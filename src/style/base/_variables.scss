@@ -7,7 +7,7 @@ $breakpoints: (
 );
 
 $color-palette: (
-  primary: #44d5da,
+  primary: #7de2e3,
   secondary: #096f88,
   success: #3adb76,
   warning: #ffae00,
@@ -15,6 +15,7 @@ $color-palette: (
 );
 
 $primary-color: map-get($color-palette, primary);
+$secondary-color: map-get($color-palette, secondary);
 $grid-col-count: 12;
 $container-width: 1200px;
 $gutter-size: 12px;

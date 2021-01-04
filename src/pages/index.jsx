@@ -24,10 +24,10 @@ const Index = ({ data }) => {
         <SEO postEdges={postEdges} />
         <div className="index-container">
           <div className="front-page-contents">
-            <section id="about-me">
-              <div className="row vertical-gutter">
-                <div className="medium side-gutter">
-                  <div className="home-picture">
+            <section id="about-me" className="blurb">
+              <div className="row vertical-gutter side-gutter">
+                <div className="medium-6">
+                  <div className="blurb-picture">
                     <img
                       src={kaz}
                       style={{ width: 200 }}
@@ -38,19 +38,19 @@ const Index = ({ data }) => {
                     </h5>
                   </div>
                 </div>
-                <div className="medium-6 side-gutter">
+                <div className="medium-6 blurb-text">
                   <div>
-                    <h2>Hi I'm Kazuki</h2>
-                    <p>
+                    <h1>Hi I'm Kazuki</h1>
+                    <h2>
                       I'm a front end developer and a university graduate living
                       in Sydney, Australia.
-                    </p>
+                    </h2>
                     <div className="button-list">
                       <a
                         href="https://github.com/kaz-yamada"
                         className="button"
                       >
-                        Github
+                        My Github
                       </a>
                       <Link className="button" to="/about/">
                         About Me

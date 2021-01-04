@@ -35,39 +35,15 @@
     padding: $gutter-size;
     background-color: $primary-color;
 
-    a {
-      padding: $gutter-size;
-      display: block;
-      transition: background 0.4s;
-      color: $black;
-      position: relative;
-
-      &::after {
-        content: "";
-        border-bottom: solid 2px $black;
-        width: 0;
-        display: block;
-        margin: 0;
-      }
-
-      &.active,
-      &:hover {
-        &::after {
-          transition: width 0.4s;
-          width: 100%;
-          bottom: -5px;
-          position: relative;
-        }
-      }
-    }
-
     .menu-links {
       display: flex;
       flex-flow: column;
+    }
 
-      a {
-        margin: 0;
-      }
+    .menu-link {
+      padding: $gutter-size;
+      color: $black;
+      margin: 0;
     }
 
     .theme-toggle {
@@ -103,7 +79,7 @@
   }
 
   // Desktop screens
-  @include large-breakpoint {
+  @include medium-breakpoint {
     display: flex;
     flex-flow: column;
     background: $primary-color;

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable import/prefer-default-export */
+import "@fontsource/tomorrow";
 
 import React from "react";
 import { ThemeProvider } from "./src/context/ThemeContext";

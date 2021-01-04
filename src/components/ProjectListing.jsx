@@ -8,7 +8,7 @@ const ProjectListing = ({ projects }) => {
           <div className="project-info">
             <h2>
               <a
-                className="project-link"
+                className="project-link underline-hover"
                 href={project.source}
                 target="_blank"
                 rel="noopener noreferrer"

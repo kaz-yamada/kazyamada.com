@@ -7,3 +7,27 @@
   justify-content: center;
   align-items: center;
 }
+
+.underline-hover {
+  display: block;
+  transition: background 0.4s;
+  position: relative;
+
+  &::after {
+    content: "";
+    border-bottom: solid 2px;
+    width: 0;
+    display: block;
+    margin: 0;
+  }
+
+  &.active,
+  &:hover {
+    &::after {
+      transition: width 0.4s;
+      width: 100%;
+      bottom: -5px;
+      position: relative;
+    }
+  }
+}

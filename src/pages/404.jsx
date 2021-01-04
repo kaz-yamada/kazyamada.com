@@ -14,7 +14,7 @@ const notFoundPage = () => (
       <div className="post-header">
         <div className="header-background" />
         <div className="title">
-          <h1>404</h1>
+          <h1>Page not found</h1>
         </div>
       </div>
       <div className="index-container">

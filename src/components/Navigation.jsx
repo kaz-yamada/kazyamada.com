@@ -41,7 +41,7 @@ const Navigation = ({ config }) => {
       <div className="navbar">
         <div className="nav-title">
           <Link
-            className="menu-link"
+            className="menu-link underline-hover"
             activeClassName="active"
             onClick={hideMenu}
             to="/#"
@@ -54,7 +54,7 @@ const Navigation = ({ config }) => {
             {menuLinks.map((item) => {
               return (
                 <Link
-                  className="menu-link"
+                  className="menu-link underline-hover"
                   activeClassName="active"
                   key={item.name}
                   to={item.link}
