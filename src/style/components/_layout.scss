@@ -19,7 +19,7 @@
     .main-content {
       margin: $responsive-navbar-height auto 0;
       width: 100%;
-      max-width: 1200px;
+      max-width: $container-width;
     }
   }
 }
@@ -52,13 +52,16 @@
 }
 
 .blurb {
-  //   margin-bottom: 40px;
-  //   margin-left: -$gutter-size * 2;
   margin: 0 (-$gutter-size) 40px;
+  color: $black;
+
+  .blurb-inner {
+    background-color: $primary-color;
+  }
 
   .row {
-    background-color: $primary-color;
-    color: $black;
+    max-width: $container-width;
+    margin: auto;
 
     h2,
     h5 {
@@ -97,17 +100,20 @@
   }
 
   @include medium-breakpoint {
+    & {
+      width: 100vw;
+      position: relative;
+      margin-left: -50vw;
+      left: 50%;
+    }
+
     &::after {
       content: "";
       display: block;
+      background-color: $primary-color;
       height: 80px;
 
-      background-image: linear-gradient(
-        to right bottom,
-        $primary-color 0%,
-        $primary-color 50%,
-        transparent 50%
-      );
+      clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% calc(100% - 6vw));
     }
 
     .blurb-picture {
