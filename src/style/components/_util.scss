@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .underline-hover {
   display: block;
   transition: background 0.4s;

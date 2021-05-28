@@ -38,7 +38,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="post-header">
           <div className="header-background" />
-          <div className="header-contents">
+          <div className="header-contents container">
             {image ? <Img fixed={image} className="thumbnail" /> : <div />}
             <div className="title-bar">
               <div className="title">
@@ -50,7 +50,7 @@ const PostTemplate = ({ data, pageContext }) => {
             </div>
           </div>
         </div>
-        <div className="post-meta vertical-gutter">
+        <div className="post-meta vertical-gutter container">
           {imageCredit && <div className="image-credit">{imageCredit}</div>}
           {frontmatter.tags && (
             <div className="post-tags">
@@ -59,7 +59,7 @@ const PostTemplate = ({ data, pageContext }) => {
             </div>
           )}
         </div>
-        <div className="post-body">
+        <div className="post-body container">
           <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           <UserInfo config={config} />
         </div>

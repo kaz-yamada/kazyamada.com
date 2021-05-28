@@ -19,7 +19,7 @@
     .main-content {
       margin: $responsive-navbar-height auto 0;
       width: 100%;
-      max-width: $container-width;
+      // max-width: $container-width;
     }
   }
 }
@@ -47,6 +47,12 @@
       #wheel {
         animation: scroll ease 2s infinite;
       }
+    }
+  }
+
+  @include medium-breakpoint {
+    section {
+      margin-bottom: $gutter-size * 8;
     }
   }
 }
@@ -101,10 +107,7 @@
 
   @include medium-breakpoint {
     & {
-      width: 100vw;
       position: relative;
-      margin-left: -50vw;
-      left: 50%;
     }
 
     &::after {
@@ -112,6 +115,7 @@
       display: block;
       background-color: $primary-color;
       height: 80px;
+      margin-top: -1px;
 
       clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% calc(100% - 6vw));
     }
@@ -204,12 +208,16 @@
   .post-link {
     display: flex;
     margin: 1em 0;
-    padding: 1em;
+    padding: $gutter-size 0;
     width: 100%;
     border-radius: 5px;
 
     &:hover {
-      background-color: rgba(#f3f3f3, $alpha: 0.7);
+      .post-text {
+        & {
+          text-decoration: underline;
+        }
+      }
     }
 
     h3 {

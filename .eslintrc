@@ -1,6 +1,14 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "jsx-a11y", "import"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "react-hooks"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "react/prefer-stateless-function": "off",
@@ -9,9 +17,19 @@
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight", "to"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight",
+          "to"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ]
   },
@@ -20,13 +38,17 @@
   },
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "commonjs": true
   },
   "overrides": [
     {
-      "files": ["**/*.test.js"],
+      "files": [
+        "**/*.test.js"
+      ],
       "env": {
-        "jest": true
+        "jest": true,
+        "commonjs": true
       }
     }
   ]

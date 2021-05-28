@@ -18,7 +18,7 @@ const PageTemplate = ({ data, pageContext }) => {
         <title>{`${page.title} | ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postPath={slug} postNode={postNode} postSEO />
-      <div className="page side-gutter">
+      <div className="page side-gutter container">
         <article>
           <header className="page-header">
             <h1>{page.title}</h1>
